@@ -1,3 +1,4 @@
+
 # Solved. · Michelle David's portfolio
 
 **Name:** Michelle David
@@ -57,3 +58,6 @@ No frameworks, no build step and no npm packages: plain HTML, CSS and JavaScript
 ## Credits
 
 Fonts: Newsreader, IBM Plex Mono and Kalam (Google Fonts).
+=======
+# new_portfolio-
+>>>>>>> 311d41d71cfb3d022582c6f60eef277357e9a589
