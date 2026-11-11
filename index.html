@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michelle David · Full-stack developer in Lagos</title>
+  <meta name="description" content="Michelle David is a full-stack developer and designer in Lagos. Databases, dashboards and web apps where every row, column and box checks out.">
+  <meta name="theme-color" content="#F4EFE6">
+
+  <!-- Open Graph (link previews on WhatsApp, LinkedIn, X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Michelle David · Solved.">
+  <meta property="og:description" content="Full-stack developer in Lagos. Databases, dashboards and the occasional puzzle.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Newsreader (headlines + body), IBM Plex Mono (digits, tags), Kalam (pencil notes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Kalam:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="wrap">
+      <p class="dateline">
+        <span>Vol. 1 · Lagos edition</span>
+        <span id="today">Puzzle No. 419</span>
+        <span>Difficulty: hard</span>
+      </p>
+
+      <div class="nameplate">
+        <a class="brand" href="./">Michelle David</a>
+        <p class="tagline">The puzzle page · software, systems and the occasional poster</p>
+      </div>
+
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="#nine">The nine</a></li>
+          <li><a href="#notes">Notes</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="assets/cv/Michelle_David_CV.pdf" download>CV</a></li>
+        </ul>
+        <button class="btn btn-small" id="plainToggle" type="button" aria-pressed="false">Skip the puzzle</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="kicker">Today's puzzle, solved by Michelle David</p>
+        <h1 id="hero-title">I build systems where every row, column and box checks out.</h1>
+        <p class="lede">Full-stack developer in Lagos. Databases, dashboards and the occasional puzzle.</p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#nine">See the nine</a>
+          <a class="btn" href="#contact">Hire me</a>
+        </div>
+        <p class="quick-contact">
+          <a class="js-email" href="mailto:michelle.david@pau.edu.ng">Email me</a>
+          <span aria-hidden="true">·</span>
+          <a class="js-whatsapp" href="https://wa.me/2348060849835" target="_blank" rel="noopener">WhatsApp</a>
+          <span aria-hidden="true">·</span>
+          <a href="assets/cv/Michelle_David_CV.pdf" download>Download CV</a>
+        </p>
+      </div>
+
+      <figure class="hero-board">
+        <!-- Decorative: built by js/board.js. Everything it "says" is also in the text. -->
+        <div class="board" id="board" aria-hidden="true"></div>
+        <figcaption class="pencil" id="boardCaption">One cell left. <a href="#contact">That one's yours</a></figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ THE NINE (PROJECTS) ============ -->
+    <section class="section wrap" id="nine" aria-labelledby="nine-title">
+      <header class="section-head">
+        <h2 id="nine-title">The nine</h2>
+        <p class="req-label">Projects</p>
+        <p class="section-note">Nine projects, one per cell. Pick a tool and every project that uses it lights up, like the same-number highlight in Sudoku.</p>
+      </header>
+
+      <div class="filters" role="group" aria-label="Highlight projects by tool" id="filters"></div>
+      <p class="filter-status" id="filterStatus" aria-live="polite"></p>
+
+      <ol class="nine" id="nineGrid"></ol>
+
+      <p class="key-hint pencil" id="keyHint">Tip: press 1 to 9 on your keyboard to open a project.</p>
+
+      <div class="also">
+        <a class="play-card" href="play/">
+          <span class="digit" aria-hidden="true">10</span>
+          <span>
+            <strong>Play my Sudoku game</strong>
+            <span class="pencil">pencil-mark notes, and a green flash when a row, column or box checks out</span>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="also-line"><strong>Also:</strong> a multi-department school network in Cisco Packet Tracer, with EIGRP and OSPF routing, DHCP, static IPs and ACLs.</p>
+      </div>
+    </section>
+
+    <!-- ============ RECRUITER MODE (plain list, built from the same data) ============ -->
+    <section class="section wrap plain-only" id="plain" aria-labelledby="plain-title" hidden>
+      <header class="section-head">
+        <h2 id="plain-title">Projects, plainly</h2>
+        <p class="req-label">Projects</p>
+      </header>
+      <ol class="plain-list" id="plainList"></ol>
+    </section>
+
+    <!-- ============ NOTES (ABOUT ME) ============ -->
+    <section class="section wrap" id="notes" aria-labelledby="notes-title">
+      <header class="section-head">
+        <h2 id="notes-title">Notes</h2>
+        <p class="req-label">About me</p>
+      </header>
+
+      <div class="notes-layout">
+        <div class="about">
+          <dl class="about-lines">
+            <div>
+              <dt>Who I am</dt>
+              <dd>I'm Michelle David, a computer science student at Pan-Atlantic University in Lagos, on the First Class Honours track and graduating in 2027.</dd>
+            </div>
+            <div>
+              <dt>What I do</dt>
+              <dd>I build web apps, dashboards and database-backed systems, from the schema to the screen. I also design the parts people look at.</dd>
+            </div>
+            <div>
+              <dt>My focus</dt>
+              <dd>Full-stack web with React, TypeScript and PostgreSQL. Next on my list: Linux and DevOps.</dd>
+            </div>
+          </dl>
+
+          <ul class="margin-notes" aria-label="Quick facts">
+            <li class="pencil">Valedictorian, Fountain Heights, 2023</li>
+            <li class="pencil">First Class Honours track</li>
+            <li class="pencil">Lagos, Nigeria</li>
+            <li class="pencil">IT support at DHL, 2025</li>
+            <li class="pencil">Freelance poster designer since 2024</li>
+            <li class="pencil">JA chapter president, 2022–23</li>
+          </ul>
+        </div>
+
+        <figure class="portrait">
+          <!-- TODO (Michelle): add assets/img/michelle.webp (square, about 600x600) and it replaces this card automatically -->
+          <img src="assets/img/michelle.webp" alt="Portrait of Michelle David" width="600" height="600" loading="lazy" data-fallback="Your photo goes here">
+        </figure>
+      </div>
+
+      <div class="skills">
+        <h3>Skills</h3>
+        <p class="skills-legend"><span class="ink-chip">ink</span> confident <span class="pencil-chip">pencil</span> still learning</p>
+        <div class="skill-groups">
+          <div>
+            <h4>Build</h4>
+            <ul class="chips">
+              <li class="ink-chip">HTML/CSS/JavaScript</li>
+              <li class="ink-chip">TypeScript</li>
+              <li class="ink-chip">React</li>
+              <li class="ink-chip">Next.js</li>
+              <li class="ink-chip">Tailwind CSS</li>
+              <li class="ink-chip">Redux Toolkit</li>
+              <li class="ink-chip">Java</li>
+              <li class="ink-chip">JavaFX</li>
+              <li class="ink-chip">Python</li>
+              <li class="ink-chip">Streamlit</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Data</h4>
+            <ul class="chips">
+              <li class="ink-chip">PostgreSQL</li>
+              <li class="ink-chip">MySQL</li>
+              <li class="ink-chip">pandas</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Tools</h4>
+            <ul class="chips">
+              <li class="ink-chip">Git</li>
+              <li class="ink-chip">Figma</li>
+              <li class="ink-chip">ServiceNow</li>
+              <li class="ink-chip">Cisco Packet Tracer</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Learning</h4>
+            <ul class="chips">
+              <li class="pencil-chip">Linux</li>
+              <li class="pencil-chip">DevOps</li>
+            </ul>
+          </div>
+        </div>
+        <p class="concepts"><strong>Concepts:</strong> OOP, data structures and algorithms, database management, networking, UI/UX.</p>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section wrap" id="experience" aria-labelledby="exp-title">
+      <header class="section-head">
+        <h2 id="exp-title">Experience</h2>
+        <p class="req-label">Work, leadership and education</p>
+      </header>
+
+      <ol class="timeline">
+        <li>
+          <p class="when">Apr – Jul 2026</p>
+          <div>
+            <h3>AI Engineer · Tonative</h3>
+            <p>Upgraded the company website and built the frontend of an AI translation dashboard.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">May 2026</p>
+          <div>
+            <h3>Virtual Assistant Program · Vsavvy Academy</h3>
+            <p>Certification.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">Jul – Sep 2025</p>
+          <div>
+            <h3>IT Support Intern · DHL International</h3>
+            <p>Fixed hardware, software and network issues, set up computers for new hires and managed tickets in ServiceNow within SLA.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2024 – now</p>
+          <div>
+            <h3>Freelance Graphic Designer</h3>
+            <p>Marketing posters for small businesses.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">Jul – Sep 2024</p>
+          <div>
+            <h3>Programming Intern · Africa Fintech Foundry</h3>
+            <p>Built and presented solutions in Java with a cross-functional hackathon team, and joined fintech workshops with Access Bank.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">Oct 2022 – Oct 2023</p>
+          <div>
+            <h3>Chapter President · Junior Achievement Nigeria</h3>
+            <p>Led 20+ students running entrepreneurship and financial literacy workshops.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2023 – 2027</p>
+          <div>
+            <h3>BSc Computer Science · Pan-Atlantic University</h3>
+            <p>First Class Honours track. Before that: valedictorian at Fountain Heights Secondary School.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section wrap contact" id="contact" aria-labelledby="contact-title">
+      <header class="section-head">
+        <h2 id="contact-title">Only one number fits here: you.</h2>
+        <p class="req-label">Contact</p>
+      </header>
+
+      <div class="contact-layout">
+        <div class="contact-cta">
+          <p>Hiring, or have a project in mind? The fastest way to reach me is email or WhatsApp.</p>
+          <div class="actions">
+            <a class="btn btn-primary js-email" href="mailto:michelle.david@pau.edu.ng">Email me</a>
+            <a class="btn js-whatsapp" href="https://wa.me/2348060849835" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <p class="pencil">michelle.david@pau.edu.ng · 0806 084 9835</p>
+
+          <div class="mini-board" id="miniBoard" aria-hidden="true">
+            <span>3</span><span>7</span><span>1</span>
+            <span>9</span><span>4</span><span>8</span>
+            <span>2</span><span>6</span><span class="you">?</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <h3>Hire me / get in touch</h3>
+          <p class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </p>
+          <p class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          </p>
+          <p class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </p>
+          <!-- Honeypot field for bots. People never see it. -->
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <p class="footer-line">Got a puzzle for me?</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Hire me</a>
+          <a class="btn js-email" href="mailto:michelle.david@pau.edu.ng">Email</a>
+          <a class="btn js-whatsapp" href="https://wa.me/2348060849835" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/mdavid001" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/michelle-ada-david-89885725b" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="assets/cv/Michelle_David_CV.pdf" download>CV (PDF)</a></li>
+        <li><a href="play/">Play Sudoku</a></li>
+      </ul>
+      <p class="colophon">© <span id="year">2026</span> Michelle David. Set in Newsreader, IBM Plex Mono and Kalam. Built by hand in HTML, CSS and JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Content first, then behaviour -->
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
