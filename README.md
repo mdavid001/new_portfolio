@@ -4,7 +4,7 @@
 **Name:** Michelle David
 **Matric number:** 23120111010
 **Course:** CSC 419, Advances in Web, Mobile and Blockchain Development (Pan-Atlantic University)
-**Live site:** https://mdavid001.github.io/solved/ <!-- update if the repo has a different name -->
+**Live site:** (https://michelledavid.vercel.app)
 
 A personal portfolio styled as the puzzle page of a Lagos newspaper. The hero Sudoku solves itself, the projects sit in a 3x3 grid ("The nine"), and every project has its own case-study page.
 
