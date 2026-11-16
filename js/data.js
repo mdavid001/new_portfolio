@@ -14,7 +14,7 @@ window.SITE = {
   cv: "assets/cv/Michelle_David_CV.pdf",
   play: "play/",
   // Free key from https://web3forms.com (enter your email, the key arrives by email)
-  web3formsKey: "TODO_WEB3FORMS_ACCESS_KEY"
+  web3formsKey: "267edcf4-e389-4d55-a0d8-da98fe5979ca"
 };
 
 /* Tools shown as filter pills, in this order */
