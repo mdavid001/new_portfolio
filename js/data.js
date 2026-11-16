@@ -6,11 +6,11 @@
 
 window.SITE = {
   name: "Michelle David",
-  email: "michelle.david@pau.edu.ng",
+  email: "adaezedavid76@gmail.com",
   phoneDisplay: "0806 084 9835",
   whatsapp: "2348060849835",            // international format, no + or spaces
   github: "https://github.com/mdavid001",
-  linkedin: "https://www.linkedin.com/in/michelle-ada-david-89885725b",
+  linkedin: "https://www.linkedin.com/in/michelle-david-89885725b/",
   cv: "assets/cv/Michelle_David_CV.pdf",
   play: "play/",
   // Free key from https://web3forms.com (enter your email, the key arrives by email)
@@ -31,11 +31,12 @@ window.PROJECTS = [
     oneLiner: "Frontend for an AI translation dashboard, plus a company website upgrade.",
     summary: "Michelle David built the frontend of Tonative's AI translation dashboard in React, TypeScript and Redux Toolkit, and upgraded the company website.",
     tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Redux Toolkit", "RTK Query"],
-    links: { live: "[TODO: Tonative live URL]", code: "" },
-    cover: { src: "assets/img/projects/tonative/cover.webp", alt: "Tonative translation dashboard showing an uploaded file and its translation status" },
+    links: { live: "https://www.tonative.org", code: "" },
+    cover: { src: "assets/img/projects/tonative/cover.png", alt: "Tonative translation dashboard showing an uploaded file and its translation status" },
     overview: [
       "During my time as an AI Engineer at Tonative I worked on two things: an upgrade of the company website, and the frontend of an AI translation dashboard.",
-      "The dashboard takes a user from uploading a file to downloading the translated result, with every step in between visible: choosing and configuring the translation engine, watching the job's status, previewing results in a table, and finding past jobs in a history view."
+      "The dashboard takes a user from uploading a file to downloading the translated result, with every step in between visible: choosing and configuring the translation engine, watching the job's status, previewing results in a table, and finding past jobs in a history view.",
+      "The AI translation dashboard has not been deployed."
     ],
     problem: [
       "Translation jobs take time and pass through several stages. Users need one place to start a job, see where it is, check the output and get the file back, without asking anyone what is happening."
@@ -54,9 +55,9 @@ window.PROJECTS = [
       "Company website upgraded with Next.js, TypeScript and Tailwind CSS"
     ],
     shots: [
-      { src: "assets/img/projects/tonative/1.webp", alt: "Upload and engine configuration screen", caption: "Upload and engine settings" },
-      { src: "assets/img/projects/tonative/2.webp", alt: "Job status and results preview table", caption: "Status and results preview" },
-      { src: "assets/img/projects/tonative/3.webp", alt: "Upgraded Tonative company website", caption: "The upgraded website" }
+      { src: "assets/img/projects/tonative/1.png", alt: "The available datasets at Tonative", caption: "Available dataset" },
+      { src: "assets/img/projects/tonative/2.png", alt: "JInformation about the community", caption: "Community & Missions" },
+      { src: "assets/img/projects/tonative/3.png", alt: "Email contact form", caption: "Email contact form" }
     ],
     tech: [
       { name: "Next.js", use: "Company website" },
@@ -65,7 +66,11 @@ window.PROJECTS = [
       { name: "RTK Query", use: "Calls to the status, results and download APIs" },
       { name: "Tailwind CSS", use: "Styling" }
     ],
-    learned: ["[TODO: in your words. Prompts: what was hard about the RSC flag bug and how did you find the cause? What did RTK Query change about how you handle API data?]"]
+    learned: [
+      "Server Components can't run browser-only code, so the country flag icons broke until I moved them into client components. Tracing that taught me to check where a component renders before I debug it.",
+      "RTK Query handled the status, results and download calls for me, including loading and error states, so I stopped writing fetch-and-store code by hand.",
+      "The status endpoint returns a bare string instead of an object, which taught me to read the API response before building the UI around it."
+    ]
   },
 
   /* ---------------------------------------------------- 2 */
@@ -78,8 +83,8 @@ window.PROJECTS = [
     oneLiner: "Automated attendance for PAU's School of Science and Technology.",
     summary: "SIBAS replaces manual attendance at PAU's School of Science and Technology with a PostgreSQL and Streamlit system that tracks, scores and flags attendance per course.",
     tools: ["PostgreSQL", "Python", "Streamlit"],
-    links: { live: "", code: "[TODO: GitHub repo URL, if public]" },
-    cover: { src: "assets/img/projects/sibas/cover.webp", alt: "SIBAS attendance report with students below 80% flagged" },
+    links: { live: "", code: "" },
+    cover: { src: "assets/img/projects/sibas/cover.jpeg", alt: "SIBAS attendance report with students below 80% flagged" },
     overview: [
       "SIBAS, the Student Information and Biometric Attendance System, is a group project for the School of Science and Technology at Pan-Atlantic University. It moves attendance from a manual process into a database, so the school can see each student's attendance per course at any time.",
       "My roles were database administrator and software developer. I designed the ER model and the fully normalised PostgreSQL schema, and worked on the Python and Streamlit app that administrators, lecturers and students use in the browser."
@@ -106,10 +111,10 @@ window.PROJECTS = [
       "Bulk student registration by CSV upload"
     ],
     shots: [
-      { src: "assets/img/projects/sibas/1.webp", alt: "SIBAS sign-in screen", caption: "Sign-in, with a role for each user" },
-      { src: "assets/img/projects/sibas/2.webp", alt: "Lecturer starting an attendance session for a course", caption: "A lecturer starts a session" },
-      { src: "assets/img/projects/sibas/3.webp", alt: "Attendance report with students below 80 percent flagged", caption: "Per-course report with the 80% flag" },
-      { src: "assets/img/projects/sibas/4.webp", alt: "Administrator uploading a CSV of students", caption: "Bulk registration by CSV" }
+      { src: "assets/img/projects/sibas/1.jpeg", alt: "Attendance records for a course", caption: "Attendance records for a course" },
+      { src: "assets/img/projects/sibas/2.jpeg", alt: "Login page", caption: "Login page" },
+      { src: "assets/img/projects/sibas/3.jpeg", alt: "Attendance report with students below 80 percent flagged", caption: "Per-course report with the 80% flag" },
+      { src: "assets/img/projects/sibas/4.jpeg", alt: "PostgreSQL DB", caption: "PostgreSQL DB" }
     ],
     tech: [
       { name: "PostgreSQL", use: "Normalised schema, constraints and the attendance data" },
@@ -118,9 +123,9 @@ window.PROJECTS = [
       { name: "CSV / PDF", use: "Bulk upload in, reports out" }
     ],
     learned: [
-      "[TODO: your words. Prompt: what did normalising the schema teach you, and did it change anything once the app was built on it?]",
-      "[TODO: your words. Prompt: what did you learn about security from hashing passwords and parameterising queries?]",
-      "[TODO: your words. Prompt: what did working as the team's database person teach you about working in a group?]"
+      "Normalising the schema meant each fact lived in one place. Attendance scores and the 80% flag could then be queried directly, and fixing one record didn't leave stale copies elsewhere.",
+      "Hashing passwords and parameterising every query showed me that security is built into the code from the start. The app handles student records, so it had to be safe from the first version.",
+      "Being the team's database person meant everyone built on my schema, so I had to document it clearly and keep changes agreed with the group."
     ]
   },
 
@@ -134,8 +139,8 @@ window.PROJECTS = [
     oneLiner: "Lab information system with three roles and a test builder.",
     summary: "Sante Diagnostics is a Laboratory Information Management System in JavaFX and PostgreSQL, with three roles, a test builder and a payment-checked request queue.",
     tools: ["Java", "JavaFX", "PostgreSQL"],
-    links: { live: "", code: "[TODO: GitHub repo URL, if public]" },
-    cover: { src: "assets/img/projects/sante/cover.webp", alt: "Sante Diagnostics request queue shown as cards" },
+    links: { live: "", code: "" },
+    cover: { src: "assets/img/projects/sante/cover.jpg", alt: "Sante Diagnostics request queue shown as cards" },
     overview: [
       "Sante Diagnostics is a Laboratory Information Management System (LIMS) built for a PAU course (CSC310) as a JavaFX desktop app on a PostgreSQL database.",
       "It has three roles: a super admin who manages users and tests, lab attendants who work through test requests, and customers who request tests."
@@ -156,15 +161,15 @@ window.PROJECTS = [
       "Custom in-app dialogs"
     ],
     shots: [
-      { src: "assets/img/projects/sante/1.webp", alt: "Sante sign-in and forced password change", caption: "First sign-in" },
-      { src: "assets/img/projects/sante/2.webp", alt: "Test builder screen", caption: "Test builder" },
-      { src: "assets/img/projects/sante/3.webp", alt: "Card-based request queue", caption: "Request queue" }
+      { src: "assets/img/projects/sante/1.jpg", alt: "Sante sign-in and forced password change", caption: "First sign-in" },
+      { src: "assets/img/projects/sante/2.jpg", alt: "Test builder screen", caption: "Test builder" },
+      { src: "assets/img/projects/sante/3.jpg", alt: "Card-based request queue", caption: "Request queue" }
     ],
     tech: [
       { name: "Java + JavaFX", use: "Desktop app and UI" },
       { name: "PostgreSQL", use: "Users, tests and requests" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Running database calls on background threads kept the JavaFX interface responsive, and I learned to update the UI only from the JavaFX thread."]
   },
 
   /* ---------------------------------------------------- 4 */
@@ -177,13 +182,13 @@ window.PROJECTS = [
     oneLiner: "Peer tutoring platform for PAU students, built from Figma designs.",
     summary: "P2P Tutorials is a React and TypeScript frontend for a PAU peer tutoring platform, with tutor and tutee sign-up and a dashboard.",
     tools: ["React", "TypeScript", "Figma"],
-    links: { live: "", code: "[TODO: GitHub repo URL, if public]" },
-    cover: { src: "assets/img/projects/p2p/cover.webp", alt: "P2P Tutorials sign-up screen with tutor and tutee options" },
+    links: { live: "", code: "https://github.com/Bojeah/peer2peer-frontend" },
+    cover: { src: "assets/img/projects/p2p/cover.jpeg", alt: "P2P Tutorials sign-up screen with tutor and tutee options" },
     overview: [
       "P2P Tutorials is a peer tutoring platform for my school. I'm building the frontend in React and TypeScript from Figma designs; the backend is built separately.",
       "Students sign up as a tutor or a tutee, register for help or volunteer to give it, and manage things from a dashboard. There's also an FAQ page."
     ],
-    problem: ["[TODO: one or two lines on why the school needs this. For example: how do students find a tutor today?]"],
+    problem: ["Students who want academic help from peers have no single place to find a tutor or offer to tutor. P2P Tutorials brings both sides into one platform."],
     constraints: [
       "The UI follows the Figma designs.",
       "The frontend has to fit a backend that is being built separately."
@@ -195,14 +200,14 @@ window.PROJECTS = [
       "FAQ page"
     ],
     shots: [
-      { src: "assets/img/projects/p2p/1.webp", alt: "Tutor and tutee sign-up", caption: "Sign-up" },
-      { src: "assets/img/projects/p2p/2.webp", alt: "P2P dashboard", caption: "Dashboard" }
+      { src: "assets/img/projects/p2p/1.jpeg", alt: "Frequently Asked Questions", caption: "FAQs" },
+      { src: "assets/img/projects/p2p/2.jpeg", alt: "About Us Page", caption: "About Us" }
     ],
     tech: [
       { name: "React + TypeScript", use: "Frontend" },
       { name: "Figma", use: "Source designs" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Building from Figma designs taught me to turn incomplete designs into working screens, and to flag the gaps with the designer, such as a mislabelled field, instead of copying them."]
   },
 
   /* ---------------------------------------------------- 5 */
@@ -215,13 +220,16 @@ window.PROJECTS = [
     oneLiner: "E-commerce app with product listings, cart and checkout.",
     summary: "ShopSphere is a full-stack e-commerce app in React with REST APIs: product listings, cart management and checkout.",
     tools: ["React", "REST APIs"],
-    links: { live: "[TODO: live URL, if deployed]", code: "[TODO: GitHub repo URL]" },
+    links: { live: "", code: "" },
     cover: { src: "assets/img/projects/shopsphere/cover.webp", alt: "ShopSphere product listing page" },
     overview: [
       "ShopSphere is a full-stack e-commerce platform with product listings, cart management and checkout. The React frontend is complete and talks to backend services through RESTful APIs."
     ],
-    problem: ["[TODO: who is ShopSphere for, or what did you want to practise with it?]"],
-    constraints: ["[TODO: what made it hard? For example, keeping the cart in sync, or checkout steps]"],
+    problem: ["I wanted to build a complete shopping flow end to end, from browsing to checkout, to practise connecting a React frontend to REST APIs."],
+    constraints: [
+      "The cart has to stay consistent as items are added, changed and removed.",
+      "The frontend depends on backend services through REST APIs, so it follows their data shapes."
+    ],
     features: [
       "Product listings",
       "Cart management",
@@ -237,7 +245,7 @@ window.PROJECTS = [
       { name: "React", use: "Frontend" },
       { name: "REST APIs", use: "Backend services" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Keeping cart state in sync across pages and talking to a REST backend taught me to plan state and API contracts before building screens."]
   },
 
   /* ---------------------------------------------------- 6 */
@@ -255,8 +263,11 @@ window.PROJECTS = [
     overview: [
       "CineMatch is a movie recommendation system that matches people with films based on their preferences. It combines collaborative filtering with content-based recommendation, and I built and deployed a frontend for it."
     ],
-    problem: ["[TODO: one or two lines on the problem, for example choosing what to watch]"],
-    constraints: ["[TODO: what made it hard? For example, data, cold start, or deployment]"],
+    problem: ["With so many films available, choosing one takes time. CineMatch suggests films based on what a user likes."],
+    constraints: [
+      "Collaborative filtering needs enough rating data and struggles with new users who have none (the cold-start problem).",
+      "The model and the frontend had to be deployed together so the recommendations work online."
+    ],
     features: [
       "Collaborative filtering",
       "Content-based recommendations",
@@ -271,7 +282,7 @@ window.PROJECTS = [
       { name: "[TODO: language and libraries]", use: "Recommendation model" },
       { name: "[TODO: frontend stack]", use: "Frontend" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Collaborative and content-based filtering fail in different ways, and combining them covers each one's gaps."]
   },
 
   /* ---------------------------------------------------- 7 */
@@ -290,7 +301,7 @@ window.PROJECTS = [
       "PAU Café is a desktop ordering app for the university café, built in JavaFX on PostgreSQL for CSC310 (CA2).",
       "Students browse and search the menu, add items to a cart and pay from a wallet balance. Managers keep the menu up to date from their own dashboard."
     ],
-    problem: ["[TODO: one or two lines on how ordering worked at the café before]"],
+    problem: ["Ordering at the campus café depended on queueing and manual order handling. This app lets students browse, order and pay from a wallet, while managers keep the menu current."],
     constraints: [
       "Students and managers sign in to different views (role-based login).",
       "Orders are paid from a wallet, so the balance has to stay correct."
@@ -312,7 +323,7 @@ window.PROJECTS = [
       { name: "Java + JavaFX", use: "Desktop app and UI" },
       { name: "PostgreSQL", use: "Menu, users, wallet and orders" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Handling wallet balances in a database taught me to keep every payment consistent, and to use enum types and background tasks to keep the app reliable and responsive."]
   },
 
   /* ---------------------------------------------------- 8 */
@@ -351,7 +362,7 @@ window.PROJECTS = [
       { name: "Figma", use: "Wireframes and prototypes" },
       { name: "NABC framework", use: "Product concept" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["NABC made me justify the need before drawing screens. Designing for secondary school students taught me to keep flows short and mobile-first."]
   },
 
   /* ---------------------------------------------------- 9 */
@@ -362,10 +373,10 @@ window.PROJECTS = [
     dates: "",
     status: "Domain coming",
     oneLiner: "Email marketing portfolio site for a client.",
-    summary: "A portfolio website Michelle David designed and built for email marketer Victoria Simon, deployed on Vercel.",
+    summary: "A portfolio website Michelle David designed and built for email marketer Victoria Simon, to be deployed on a public domain.",
     tools: ["Vercel", "React"],
-    links: { live: "[TODO: live URL once the domain is ready]", code: "" },
-    cover: { src: "assets/img/projects/victoria-simon/cover.webp", alt: "Adaeze Victoria Simon's email marketing portfolio home page" },
+    links: { live: "", code: "" },
+    cover: { src: "assets/img/projects/victoria-simon/cover.png", alt: "Adaeze Victoria Simon's email marketing portfolio home page" },
     overview: [
       "A portfolio website for Adaeze Victoria Simon to show her email marketing work to prospective clients. I designed and built it, and it is deployed on Vercel."
     ],
@@ -394,13 +405,13 @@ window.PROJECTS = [
       "Her photos and logo used across the site"
     ],
     shots: [
-      { src: "assets/img/projects/victoria-simon/1.webp", alt: "Client site home page", caption: "Home" },
-      { src: "assets/img/projects/victoria-simon/2.webp", alt: "Client site work samples", caption: "Work samples" }
+      { src: "assets/img/projects/victoria-simon/1.png", alt: "Client site work plan", caption: "How I Work" },
+      { src: "assets/img/projects/victoria-simon/2.png", alt: "Client site work samples", caption: "Work samples" }
     ],
     tech: [
       { name: "React + Next js", use: "Site" },
       { name: "Vercel", use: "Hosting" }
     ],
-    learned: ["[TODO: in your words]"]
+    learned: ["Content arrived in mixed formats, so I learned to prepare assets for the web: cropping long email screenshots and splitting the logo into its variations. I also learned to give a public contact form a safe way to send messages."]
   }
 ];

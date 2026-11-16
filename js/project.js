@@ -63,11 +63,22 @@
     return U.isTodo(href) ? '<span class="todo">' + U.esc(href) + "</span>" : "";
   }
 
+  // an image you can tap to see in full (opens the lightbox below)
+  function zoomable(cls, src, alt, caption, w, h, loading, fallback) {
+    return (
+      '<button type="button" class="zoom ' + cls + '" data-caption="' + U.esc(caption) + '">' +
+        '<img src="' + U.esc(src) + '" alt="' + U.esc(alt) + '" width="' + w + '" height="' + h +
+          '" loading="' + loading + '" decoding="async" data-fallback="' + U.esc(fallback) + '">' +
+        '<span class="zoom-hint" aria-hidden="true">View full image</span>' +
+        '<span class="visually-hidden"> (view full image)</span>' +
+      "</button>"
+    );
+  }
+
   var shots = p.shots.map(function (s) {
     return (
       '<figure class="shot">' +
-        '<div class="shot-frame"><img src="' + U.esc(s.src) + '" alt="' + U.esc(s.alt) +
-          '" width="1200" height="750" loading="lazy" decoding="async" data-fallback="Screenshot coming: ' + U.esc(s.caption) + '"></div>' +
+        zoomable("shot-frame", s.src, s.alt, s.caption, 1200, 750, "lazy", "Screenshot coming: " + s.caption) +
         '<figcaption class="pencil">' + U.esc(s.caption) + "</figcaption>" +
       "</figure>"
     );
@@ -92,8 +103,7 @@
       "</div>" +
     "</header>" +
 
-    '<figure class="case-cover"><img src="' + U.esc(p.cover.src) + '" alt="' + U.esc(p.cover.alt) +
-      '" width="1600" height="1000" decoding="async" data-fallback="Screenshot coming"></figure>' +
+    '<figure class="case-cover">' + zoomable("cover-frame", p.cover.src, p.cover.alt, p.name, 1600, 1000, "eager", "Screenshot coming") + "</figure>" +
 
     section("overview", "Overview", "Full description", paras(p.overview)) +
     section("givens", "Givens", "Problem I solved", paras(p.problem)) +
@@ -105,6 +115,61 @@
 
   caseEl.querySelectorAll("img[data-fallback]").forEach(U.watchImage);
 
+  /* ---------- lightbox: tap an image to see it in full ----------
+     Uses the built-in <dialog>, which handles Esc, focus and screen readers. */
+  var lb = document.createElement("dialog");
+  lb.className = "lightbox";
+  lb.setAttribute("aria-label", "Full-size image");
+  lb.innerHTML =
+    '<figure class="lb-figure"><img class="lb-img" alt=""><figcaption class="lb-caption"></figcaption></figure>' +
+    '<button type="button" class="lb-btn lb-close" aria-label="Close">✕</button>' +
+    '<button type="button" class="lb-btn lb-prev" aria-label="Previous image">‹</button>' +
+    '<button type="button" class="lb-btn lb-next" aria-label="Next image">›</button>';
+  document.body.appendChild(lb);
+
+  var lbImg = lb.querySelector(".lb-img");
+  var lbCap = lb.querySelector(".lb-caption");
+  var gallery = [];   // images that actually loaded (placeholders are skipped)
+  var current = 0;
+
+  function show(i) {
+    current = (i + gallery.length) % gallery.length;
+    var btn = gallery[current];
+    var img = btn.querySelector("img");
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = btn.dataset.caption + (gallery.length > 1 ? "  ·  " + (current + 1) + " of " + gallery.length : "");
+    lb.classList.toggle("single", gallery.length < 2);
+  }
+
+  caseEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".zoom");
+    if (!btn || !btn.querySelector("img")) return;          // placeholder: nothing to open
+    gallery = Array.prototype.filter.call(caseEl.querySelectorAll(".zoom"), function (b) {
+      var img = b.querySelector("img");
+      return img && img.naturalWidth > 0;
+    });
+    var i = gallery.indexOf(btn);
+    if (i === -1) return;
+    show(i);
+    lb.showModal();
+  });
+
+  lb.querySelector(".lb-close").addEventListener("click", function () { lb.close(); });
+  lb.querySelector(".lb-prev").addEventListener("click", function () { show(current - 1); });
+  lb.querySelector(".lb-next").addEventListener("click", function () { show(current + 1); });
+
+  // tap the dark area around the image to close
+  lb.addEventListener("click", function (e) {
+    if (e.target === lb || e.target.classList.contains("lb-figure")) lb.close();
+  });
+
+  lb.addEventListener("keydown", function (e) {
+    if (gallery.length < 2) return;
+    if (e.key === "ArrowLeft") { e.preventDefault(); show(current - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); show(current + 1); }
+  });
+
   /* ---------- previous / next ---------- */
   var prev = projects[(index - 1 + projects.length) % projects.length];
   var next = projects[(index + 1) % projects.length];
@@ -115,7 +180,7 @@
 
   /* ---------- keys 1-9 jump between projects ---------- */
   document.addEventListener("keydown", function (e) {
-    if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || e.repeat || lb.open) return;
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable) return;
     if (!/^[1-9]$/.test(e.key)) return;
     var target = projects[Number(e.key) - 1];
