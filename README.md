@@ -38,14 +38,8 @@ assets/cv/          downloadable CV (PDF)
 play/               the Sudoku game
 ```
 
-No frameworks, no build step and no npm packages: plain HTML, CSS and JavaScript.
 
-## Editing content
 
-- **Add or change a project:** edit `js/data.js`. The grid, filter, recruiter list and project page all update.
-- **Screenshots:** save them as `assets/img/projects/<project-id>/cover.webp`, `1.webp`, `2.webp`… Missing images show a "Screenshot coming" card instead of breaking.
-- **Your photo:** `assets/img/michelle.webp` (square).
-- **Unfinished text:** anything starting with `[TODO` shows on the site in a yellow dashed box. Search the code for `TODO` to find them all.
 
 ## Features
 
